@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript</title>
+    <style>
+        
+    </style>
+
+</head>
+<body>
+	<!-- 기본 입력 값 -->
+	<h1><a href="x1.html">WEB</a></h1>
+    <!-- <input type="button" value="night" onclick="
+    document.querySelector('body').style.backgroundColor='black';
+    document.querySelector('body').style.color='white';
+    "> 
+    <input type="button" value="day" onclick="
+    document.querySelector('body').style.backgroundColor='white';
+    document.querySelector('body').style.color='black';
+    ">  -->
+
+
+    <input id = "night_day" type="button" value="night" onclick="
+     if (document.querySelector('#night_day').value === 'night'){ 
+         //javascript element get value 으로 검색함 
+        document.querySelector('body').style.backgroundColor='black';
+        document.querySelector('body').style.color = 'white';
+        document.querySelector('#night_day').value = 'day';
+    }else {
+        document.querySelector('body').style.backgroundColor='white';
+        document.querySelector('body').style.color='black';
+        document.querySelector('#night_day').value = 'night';
+    }
+    ">
+
+    <!-- 조건문의 힘을 느낄 수 있다 -->
+</body>
+</html>
