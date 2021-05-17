@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript</title>
+    <script>
+    var Links = {
+        setColor: function(color){
+        var alist = document.querySelectorAll('a');
+            var i = 0;
+            while(i < alist.length){
+                console.log(alist[i]);
+                alist[i].style.color = color;
+                i = i + 1;
+            }
+        }
+    }
+    // function LinksSetColor(color){
+    //     var alist = document.querySelectorAll('a');
+    //         var i = 0;
+    //         while(i < alist.length){
+    //             console.log(alist[i]);
+    //             alist[i].style.color = color;
+    //             i = i + 1;
+    //         }
+    // }
+    var Body = {
+        setColor: function BodySetColor(color){ 
+        document.querySelector('body').style.color = color;
+        }, // , 꼭 있어야 함 객체 나열할 때 
+        setBackgroundColor : function BodySetBackgroundColor(color){
+        document.querySelector('body').style.backgroundColor = color;
+        }
+    }
+    // function BodySetColor(color){ //짧은 거여도 의미 명확하게 하는 게 좋을 수도 있다.
+    //     document.querySelector('body').style.color = color;
+    //     //target은 nightDayH 안에 있다
+    // }
+    //이름이 충돌되지 않도록 하는 게 좋다 //덮어씌워진다 
+
+    // function BodySetBackgroundColor(color){
+    //     document.querySelector('body').style.backgroundColor=color;
+    // }
+    
+    function nightDayHandler(self){ //2. self넣어줌 
+        var target = document.querySelector('body');
+        if (self.value === 'night'){ //3. this -> self 바꿔줌
+            //this 는 이벤트가 소속되어 있는 태그를 가리킴
+            //독립된 함수를 만들게 되면 this는 더이상 input 버튼이 아니라 전역 객체를 가리키게 된다.(윈도우)
+            Body.setBackgroundColor('black');
+            Body.setColor('white');
+            self.value = 'day';
+            //배열반복 추가
+            Links.setColor('powderblue');
+        }else {
+            target.style.backgroundColor='white';
+            target.style.color='black';
+            self.value = 'night';
+            //배열반복 추가
+            Links.setColor('orange');
+        }
+    }
+    </script>
+</head>
+<body>
+	<!-- 기본 입력 값 -->
+	<h1><a href="x1.html">WEB</a></h1>
+
+        <!-- document.querySelector('#night_day')  ==> this -->
+    <input id = "night_day2" type="button" value="night" onclick="
+      nightDayHandler(this);//1.this 넣어줌
+     ">
+
+     <ol>
+         <li><a href = "/x1.html">HTML</a></li>
+         <li><a href = "/x1.html">CSS</a></li>
+         <li><a href = "/x1.html">JavaScript</a></li>
+     </ol>
+     <h2>JavaScript</h2>
+     <p>(/ˈdʒɑːvəˌskrɪpt/),[8] often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.[9] JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
+
+     Alongside HTML and CSS, JavaScript is one of the core technologies of the World Wide Web.[10] Over 97% of websites use it client-side for web page behavior,[11] often incorporating third-party libraries.[12] All major web browsers have a dedicated JavaScript engine to execute the code on the user's device.</p>
+
+</body>
+</html>
